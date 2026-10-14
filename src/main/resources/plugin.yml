@@ -1,0 +1,9 @@
+name: SGMSBridge
+version: 1.0.0
+main: sgms.bridge.SGMSBridge
+api-version: '1.21'
+author: SGMS
+description: Мост Minecraft - Telegram со статистикой онлайна
+softdepend: [CoreProtect]
+libraries:
+  - org.xerial:sqlite-jdbc:3.46.1.3

@@ -1,0 +1,55 @@
+# SGMSBridge — мост Minecraft <-> Telegram + статистика онлайна.
+# Заменяет tgbridge: перед запуском tgbridge нужно выключить (один токен — один бот).
+
+# Токен бота от @BotFather
+bot-token: "PUT_BOT_TOKEN_HERE"
+bot-api-url: "https://api.telegram.org"
+
+# Группа и тема (topic), где работает бот
+chat-id: -1001907729121
+topic-id: 515206
+
+# Часовой пояс для дат и графиков (например Europe/Moscow, Asia/Dubai, Europe/Samara)
+timezone: "Asia/Dubai"
+
+# Как считать периоды:
+#   rolling  — последние 24 часа / 7 дней / 30 дней / 365 дней
+#   calendar — с начала сегодняшнего дня / недели (пн) / месяца / года
+period-mode: "rolling"
+
+# База CoreProtect (оттуда берутся входы и выходы игроков). Путь от папки сервера.
+coreprotect-db: "plugins/CoreProtect/database.db"
+
+# Сколько игроков показывать в /topday, /topweek, /topmonth, /topyear
+top-size: 10
+
+# Формат сообщений Telegram -> Minecraft (MiniMessage)
+minecraft-format: "<aqua>\\<<sender>></aqua> <text>"
+# Формат сообщений Minecraft -> Telegram (HTML)
+telegram-format: "<b>[<username>]</b>: <text>"
+
+# Какие события отправлять в Telegram
+events:
+  chat: true
+  join: true
+  leave: true
+  death: true
+  advancement: true
+  server-start: true
+  server-stop: true
+
+# Тексты сообщений в Telegram (HTML). Подстановки: {username}, {title}, {description},
+# <death_message>, {count}, {usernames}, {tps1m}, {tps5m}, {tps15m}, {mspt}
+messages:
+  server-started: "✅ <b>Сервер запущен! Минута пошла💀</b>"
+  server-stopped: "❌ <b>Сервер остановлен! Пошли все нахер🤩</b>"
+  player-joined: "🤯 <b>{username} стал дауном на СДВГ</b>"
+  player-joined-first: "🤑🤑🤑🤑 <b>{username} В ПЕРВЫЙ СТАЛ ДАУНОМ НА СДВГ!!!</b>"
+  player-left: "👨‍🦽 <b>{username} вылечился от даунизма😔</b>"
+  player-died: "☠️ <b><death_message></b>"
+  advancement-regular: "😼 <b>{username} выполнил достижение {title}</b>\n\n<i>{description}</i>"
+  advancement-goal: "🎯 <b>{username} достиг цели {title}</b>\n\n<i>{description}</i>"
+  advancement-challenge: "🏅 <b>{username} прошел испытание {title}</b>\n\n<i>{description}</i>"
+  player-list: "📝 <b>{count} дауны сервера:</b> {usernames}"
+  player-list-zero: "📝 <b>0 без даунов на сервере🕯️</b>"
+  tps: "📊 <b>TPS:</b> <code>{tps1m}</code>\n⏱️ <b>MSPT:</b> <code>{mspt}</code>"
